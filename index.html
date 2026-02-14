@@ -5,6 +5,7 @@
     <title>Hoja de Vida</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
     <div class="container">
@@ -36,20 +37,31 @@
         </section>
 
         <section>
+            <section id = "experiencia laboral">
             <h3>Experiencia Laboral</h3>
-            <p><strong>Agosto 2025 – Diciembre 2025</strong></p>
-            <p>Secretaría de Cultura</p>
-            <p>Apoyo administrativo</p>
+            <ul id = "experiencia-lista">
+            <li><strong>Agos 2025- Dic 2023:</strong> Apoyo Administrativo - Secretaria de Cultura</li>
+            </ul>
+            <form>
+                <label for="exp">Agregar nueva experiencia laboral:</label>
+                <input type="text" id="exp" name="texto">
+                <button id="boton1">Agregar</button>
         </section>
 
         <section>
+            <section id = "habilidades">
             <h3>Habilidades</h3>
-            <ul>
+            <ul id = "lista">
                 <li>Python</li>
                 <li>Java</li>
                 <li>Trabajo en equipo</li>
                 <li>Herramientas ofimáticas</li>
+                <li>C#</li>
             </ul>
+            <form>
+                <label for="item">Agregar nueva habilidad:</label>
+                <input type="text" id="item" name="texto">
+                <button id="boton">Agregar</button>
         </section>
 
         <section>
@@ -84,4 +96,66 @@
     </div>
 
 </body>
+<script>
+    const lista = document.getElementById("lista");
+    const texto = document.getElementById("item");
+    const boton = document.getElementById("boton");
+
+
+    boton.addEventListener("click", (event) => {
+        event.preventDefault(); // Evita que el formulario se envíe
+
+        const newItem = texto.value;
+        texto.value = '';
+
+        const listItem = document.createElement("li"); // Creamos un nuevo elemento li
+        const listText = document.createElement("span"); // Creamos un nuevo elemento span para el texto del item
+        const listBtn = document.createElement("button"); // Creamos un nuevo elemento button para
+
+        listItem.appendChild(listText); // Agregamos el elemento span al elemento li
+        listText.textContent = newItem; // Asignamos el valor del input al elemento span
+
+        listItem.appendChild(listBtn); // Agregamos el elemento button al elemento li
+        listBtn.textContent = "Delete"; // Asignamos el texto "Eliminar" al boton
+
+        lista.appendChild(listItem) // Agregamos el elemento li a la lista
+
+        listBtn.addEventListener("click", () => {
+            lista.removeChild(listItem); // Eliminamos el elemento li de la lista
+        });
+
+        texto.focus(); // Enfocamos el input para que el usuario pueda escribir una nueva habilidad sin tener que hacer click en el input
+    });
+</script>
+<script>
+    const listaexp = document.getElementById("experiencia-lista");
+    const textoexp= document.getElementById("exp");
+    const Botonexp = document.getElementById("boton1");
+
+    boton1.addEventListener("click", (event) => {
+        event.preventDefault(); // Evita que el formulario se envíe
+
+        const newExp = textoexp.value;
+        textoexp.value = '';
+
+        const listItem = document.createElement("li"); // Creamos un nuevo elemento li
+        const listText = document.createElement("span"); // Creamos un nuevo elemento span para el texto del item
+        const listBtn = document.createElement("button"); // Creamos un nuevo elemento button para
+
+        listItem.appendChild(listText); // Agregamos el elemento span al elemento li
+        listText.textContent = newExp; // Asignamos el valor del input al elemento span
+
+        listItem.appendChild(listBtn); // Agregamos el elemento button al elemento li
+        listBtn.textContent = "Delete"; // Asignamos el texto "Eliminar" al boton
+
+        listaexp.appendChild(listItem) // Agregamos el elemento li a la lista
+
+        listBtn.addEventListener("click", () => {
+            listaexp.removeChild(listItem); // Eliminamos el elemento li de la lista
+        });
+
+        textoexp.focus(); // Enfocamos el input para que el usuario pueda escribir una nueva experiencia sin tener que hacer click en el input
+    });
+</script>
+
 </html>
