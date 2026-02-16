@@ -57,3 +57,11 @@ p, li {
     color: #333;
     line-height: 1.6;
 }
+button {
+    margin-left: 10px;
+    background-color: #3740ef;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

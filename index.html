@@ -46,6 +46,7 @@
                 <label for="exp">Agregar nueva experiencia laboral:</label>
                 <input type="text" id="exp" name="texto">
                 <button id="boton1">Agregar</button>
+            </form>
         </section>
 
         <section>
@@ -62,12 +63,14 @@
                 <label for="item">Agregar nueva habilidad:</label>
                 <input type="text" id="item" name="texto">
                 <button id="boton">Agregar</button>
+            </form>
         </section>
 
         <section>
             <h3>Idiomas</h3>
             <ul>
-                <li>Español</li>
+                <li>Español - Nativo</li>
+                <li>Inglés - Basico</li>
             </ul>
         </section>
 
@@ -132,7 +135,7 @@
     const textoexp= document.getElementById("exp");
     const Botonexp = document.getElementById("boton1");
 
-    boton1.addEventListener("click", (event) => {
+    Botonexp.addEventListener("click", (event) => {
         event.preventDefault(); // Evita que el formulario se envíe
 
         const newExp = textoexp.value;
